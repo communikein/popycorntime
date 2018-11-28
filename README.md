@@ -24,15 +24,15 @@ To be able to use this script we will have to go through 4 steps:
   ```
 
 3. Setup qBittorrent for remote use
-  * Open the *preferences* menu
-  * Go to the *Web UI* subsection
-  * Enable *Web User Interface (Remote control)* by ticking the box next to it
-  * In the *IP address* field insert *127.0.0.1*
-  * In the *Port* field insert *8080*
-  * In the *authentication* section:
-    * In the *Username* field insert *admin*
-    * In the *Password* field insert *administrator*
-  * Click *OK*
+    * Open the *preferences* menu
+    * Go to the *Web UI* subsection
+    * Enable *Web User Interface (Remote control)* by ticking the box next to it
+    * In the *IP address* field insert *127.0.0.1*
+    * In the *Port* field insert *8080*
+    * In the *authentication* section:
+      * In the *Username* field insert *admin*
+      * In the *Password* field insert *administrator*
+    * Click *OK*
 
 4. Configure the script to use qBittorrent
   If you did all the steps in the previous step (Step 3.), then you are good to go.
