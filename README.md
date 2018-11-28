@@ -1,12 +1,13 @@
 # popycorntime
 An automated tool to look for TV Shows episodes and download them via torrent files
 
-# Installation guide
+## INSTALL
 To be able to use this script we will have to go through 4 steps:
 1. Install both Python 2.7 and qBittorrent
 2. Install the required python libraries
 3. Setup qBittorrent for remote use
 4. Configure the script to use qBittorrent
+
 
 1. Install both Python 2.7 and qBittorrent
 Here are the links to both the programs you will need to install:
