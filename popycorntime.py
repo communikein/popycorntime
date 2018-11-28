@@ -1,4 +1,4 @@
-import urllib, urllib2
+import urllib2
 import json
 from bs4 import BeautifulSoup
 from qbittorrent import Client
@@ -8,7 +8,7 @@ qbittorrent_conf = {
 	'ip' : '127.0.0.1',
 	'port' : '8080',
 	'username' : 'admin',
-	'password' : '112113'
+	'password' : 'administrator'
 }
 
 def color_string(text, color):
@@ -20,23 +20,15 @@ def error_message(message):
 	return error_message
 
 def prompt_exit():
-	a = raw_input(color_string("Are you sure? (y/n): ", 1))
-	if a.lower() in ("yes", "y"):
+	choice = raw_input(color_string("Are you sure? (y/n): ", 1))
+	if choice.lower() == "y" or choice == '':
 		sys.exit(0)
 
 def input_wrapper(prompt, color=7):
-	ps = color_string(prompt, color)
+	text = color_string(prompt, color)
+	choice = raw_input(text)
 
-	while 1:
-		try:
-
-			choice = raw_input(ps)
-			if choice.lower() == 'q':
-				prompt_exit()
-				continue
-			return choice
-		except KeyboardInterrupt:
-			prompt_exit()
+	return choice
 
 
 def watch_movie(torrent_link):
@@ -46,12 +38,11 @@ def watch_movie(torrent_link):
 		qb.login(qbittorrent_conf['username'], qbittorrent_conf['password'])
 		qb.download_from_link(torrent_link)
 	except:
-		print(error_message("You must enable WebUI for qbittorrent for this to work."))
+		print(error_message("You must enable qBittorrent Web UI for this to work."))
 
 
 """
-	Fetches a show mapping $name returns a $self instance.
-	Might raise a TVShowNotFound exception
+	Fetches a show mapping $name.
 """
 def check_tv_show(name):
 	name = name.lower()
@@ -131,7 +122,7 @@ def search_show():
 	user_input = ''
 	while user_input == '':
 		try:
-			user_input = raw_input("Choose episode #: ")
+			user_input = input_wrapper("Choose episode #: ")
 			int(user_input)
 		except ValueError:
 			print(error_message('Type in the number of the episode you want to download.'))
